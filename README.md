@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+<h1 align="center">Welcome to my-wordle 👋</h1>
+<p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  ![something](https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/80ad58cf-5d30-4d32-a142-2869190ab7b6/deploy-status)](https://app.netlify.com/sites/wordle-clappers-edition/deploys)
+</p>
 
-## Available Scripts
+> My take on the wordle game
 
-In the project directory, you can run:
+### 🏠 [Homepage](https://github.com/teobot/my-wordle)
 
-### `npm start`
+### ✨ [Demo](https://wordle-clappers-edition.netlify.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Install
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```sh
+npm install
+```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+npm run start
+```
 
-### `npm run build`
+## Run tests
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm run test
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Author
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👤 **Theo Clapperton**
 
-### `npm run eject`
+* Website: https://theoclapperton-portfolio.netlify.app/
+* Github: [@teobot](https://github.com/teobot)
+* LinkedIn: [@theoClapperton](https://linkedin.com/in/theoClapperton)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Show your support
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Give a ⭐️ if this project helped you!
