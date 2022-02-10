@@ -104,6 +104,7 @@ function Wordle() {
           const targetLetter = targetWord.split("")[ti];
           if (gLetter === targetLetter) {
             setLetters(
+              // eslint-disable-next-line no-loop-func
               letters.map((letter) => {
                 if (letter.letter === gLetter) {
                   letter.isUsed = true;
