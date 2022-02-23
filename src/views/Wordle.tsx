@@ -61,6 +61,19 @@ function Wordle() {
     setDisplayGrid(tempArr);
   };
 
+  const setLetterAsUsed = (isUsedBool: boolean, gLetter: string) => {
+    setLetters(
+      letters.map((letter) => {
+        if (letter.letter === gLetter) {
+          letter.isUsed = true;
+          isUsedBool = true;
+        }
+        return letter;
+      })
+    );
+    return isUsedBool;
+  };
+
   const handleSubmit = async () => {
     // check if the current word line is complete
     let tempArr = [...displayGrid];
@@ -104,15 +117,7 @@ function Wordle() {
         for (let ti = 0; ti < targetWord.split("").length; ti++) {
           const targetLetter = targetWord.split("")[ti];
           if (gLetter === targetLetter) {
-            setLetters(
-              letters.map((letter) => {
-                if (letter.letter === gLetter) {
-                  letter.isUsed = true;
-                  isUsedBool = true;
-                }
-                return letter;
-              })
-            );
+            isUsedBool = setLetterAsUsed(isUsedBool, gLetter);
           }
         }
       }
