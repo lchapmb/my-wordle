@@ -1,4 +1,4 @@
-import { WordleController } from "./Wordle.controller";
+import { WordleController } from "../controllers/Wordle.controller";
 
 test("testing if 'test' is a real word, should return true", async () => {
   const val = await WordleController.checkIfStringIsWord("test");

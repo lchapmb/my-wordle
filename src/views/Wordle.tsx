@@ -6,9 +6,10 @@ import { WordleController } from "../controllers/Wordle.controller";
 
 import LetterModel from "../models/LetterModel";
 
-import { Button, Segment } from "semantic-ui-react";
+import { Button, Segment, Label, Icon } from "semantic-ui-react";
 
 function Wordle() {
+  const [viewTargetWord, setViewTargetWord] = React.useState<boolean>(false);
   const [targetWord, setTargetWord] = React.useState("");
   const [displayGrid, setDisplayGrid] = React.useState(
     [0, 1, 2, 3, 4].map(() => [0, 1, 2, 3, 4].map(() => ""))
@@ -60,6 +61,19 @@ function Wordle() {
     setDisplayGrid(tempArr);
   };
 
+  const setLetterAsUsed = (isUsedBool: boolean, gLetter: string) => {
+    setLetters(
+      letters.map((letter) => {
+        if (letter.letter === gLetter) {
+          letter.isUsed = true;
+          isUsedBool = true;
+        }
+        return letter;
+      })
+    );
+    return isUsedBool;
+  };
+
   const handleSubmit = async () => {
     // check if the current word line is complete
     let tempArr = [...displayGrid];
@@ -103,16 +117,7 @@ function Wordle() {
         for (let ti = 0; ti < targetWord.split("").length; ti++) {
           const targetLetter = targetWord.split("")[ti];
           if (gLetter === targetLetter) {
-            setLetters(
-              // eslint-disable-next-line no-loop-func
-              letters.map((letter) => {
-                if (letter.letter === gLetter) {
-                  letter.isUsed = true;
-                  isUsedBool = true;
-                }
-                return letter;
-              })
-            );
+            isUsedBool = setLetterAsUsed(isUsedBool, gLetter);
           }
         }
       }
@@ -162,10 +167,19 @@ function Wordle() {
         flexDirection: "column",
       }}
     >
-      <Segment inverted color={errorMessage ? "red" : "green"}>
+      <Segment size="massive" inverted color={errorMessage ? "red" : "green"}>
         {errorMessage ? errorMessage : "No errors"}
       </Segment>
-      <Segment inverted>{targetWord}</Segment>
+      <Segment
+        basic
+        onClick={() => setViewTargetWord(!viewTargetWord)}
+        style={{ cursor: "pointer" }}
+      >
+        <Label size="massive">
+          <Icon name={viewTargetWord ? "eye slash" : "eye"} />{" "}
+          {viewTargetWord ? targetWord : "View target word"}
+        </Label>
+      </Segment>
       <div>
         {displayGrid.map((row, i) => (
           <div key={i} style={{ display: "flex", flexDirection: "row" }}>
