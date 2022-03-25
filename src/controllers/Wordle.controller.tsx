@@ -6,15 +6,19 @@ export abstract class WordleController {
     .map((x) => String.fromCharCode(x)); // the alphabet
 
   static generateWordleWord = async () => {
-    // : generate a random word from the dictionary api
-    let randomCharacter = String.fromCharCode(
-      65 + Math.floor(Math.random() * 26)
-    );
     const res = await axios.get(
-      `https://api.datamuse.com/words?sp=${randomCharacter}????`
+      `https://api.github.com/gists/fe2b58729defad2ace4d70957d221dcb`
     );
-    const randomWord = res.data[Math.floor(Math.random() * res.data.length)];
-    return randomWord.word;
+    const clue = res.data.files.wordleClue.content;
+    return clue;
+  };
+
+  static generatePubName = async () => {
+    const res = await axios.get(
+      `https://api.github.com/gists/7e702d2d3cc93feef867b1b258aa01f2`
+    );
+    const pub = res.data.files.pub.content;
+    return pub;
   };
 
   static checkIfStringIsWord = async (word: string) => {
@@ -35,7 +39,7 @@ export abstract class WordleController {
 
     if (res.data.length === 0) return false;
 
-    let isWord = false;    
+    let isWord = false;
 
     for (let i = 0; i < res.data.length; i++) {
       if (res.data[i].word === word) {

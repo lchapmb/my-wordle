@@ -21,10 +21,14 @@ function Wordle() {
     )
   );
   const [errorMessage, setErrorMessage] = React.useState("");
+  const [targetPub, setTargetPub] = React.useState("");
 
   React.useEffect(() => {
     WordleController.generateWordleWord().then((word) => {
       setTargetWord(word);
+    });
+    WordleController.generatePubName().then((name) => {
+      setTargetPub(name);
     });
   }, []);
 
@@ -137,7 +141,7 @@ function Wordle() {
     // : check if the word guessed is the target word
     if (guessString === targetWord) {
       // the word is correct
-      setErrorMessage("WINNER");
+      setErrorMessage(`WINNER! Next stop: ${targetPub}`);
       setCurrentRow(currentRow + 1);
       // TODO: GAME OVER SCREEN - WINNER
       return null;
